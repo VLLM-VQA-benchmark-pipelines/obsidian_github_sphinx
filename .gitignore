@@ -1,3 +1,4 @@
 # ignore .obsidian
 .obsidian
 files/Excalidraw/*
+_build

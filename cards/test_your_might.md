@@ -35,7 +35,7 @@ print('Hello, world')
 
 * [ ] локальный
 
-![[../files/test_your_might-20241211.png]]
+![image](../files/test_your_might-20241211.png)
 
 * [ ] онлайн
 

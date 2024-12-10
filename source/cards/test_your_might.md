@@ -27,7 +27,7 @@ print('Hello, world')
 ```
 
 Картинка:
-![](../files/test_your_might-20241211-1.png)
+![](../../files/test_your_might-20241211-1.png)
 
 Внутренняя ссылка ([ссылка](link_example.md)).
 
@@ -35,7 +35,7 @@ print('Hello, world')
 
 * [ ] локальный
 
-![image](../files/test_your_might-20241211.png)
+![image](../../files/test_your_might-20241211.png)
 
 * [ ] онлайн
 
@@ -43,7 +43,7 @@ print('Hello, world')
 
 Пример [ссылки](https://mermaid.js.org/intro/)
 
-```mermaid
+```{mermaid}
 graph TD;
 A-->B;
 A-->C;
@@ -51,7 +51,7 @@ B-->D;
 C-->D;
 ```
 
-```mermaid
+```{mermaid}
 sequenceDiagram
     participant Alice
     participant Bob
@@ -66,7 +66,7 @@ sequenceDiagram
 
 ```
 
-```mermaid
+```{mermaid}
 quadrantChart
     title Reach and engagement of campaigns
     x-axis Low Reach --> High Reach

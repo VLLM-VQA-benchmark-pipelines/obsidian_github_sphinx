@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Начинаем мастер класс &mdash; документация Obsidian Demo 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=ba58aea8"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=5b699b7f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Obsidian Demo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Начинаем мастер класс</a></li>
+<li><a class="reference internal" href="#sphinx">Генерируем статичный сайт на Sphinx</a><ul>
+<li><a class="reference internal" href="#id2">Установка Sphinx</a></li>
+<li><a class="reference internal" href="#obsidian-sphinx">Перенос файлов из Obsidian в Sphinx</a></li>
+<li><a class="reference internal" href="#id3">Генерация статического сайта</a></li>
+<li><a class="reference internal" href="#id4">Дополнительные настройки</a><ul>
+<li><a class="reference internal" href="#latex">Рендеринг формул Latex</a></li>
+<li><a class="reference internal" href="#mermaid">Рендеринг Mermaid диаграмм</a></li>
+<li><a class="reference internal" href="#id5">Использование Mermaid диаграмм</a><ul>
+<li><a class="reference internal" href="#markdown-myst-parser">Пример использования в Markdown (с MyST-Parser):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Obsidian Demo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Начинаем мастер класс</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cards/obsidian_git_git_hosting_static_site_generator.md.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><img alt="" src="../_images/obsidian_git_git_hosting_static_site_generator-20241211.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Начинаем мастер класс<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Перейдем в подготовленный репозиторий <a class="reference external" href="https://github.com/medphisiker/template_obisdian">ссылка</a></p>
+<ul class="simple">
+<li><p>[ ] Создали новый репозиторий из шаблона.</p></li>
+<li><p>[ ] test_your_might.md</p></li>
+<li><p>[ ] push на github, показываем как все круто</p></li>
+<li><p>[ ] показываем проект по мультимодальным моделям Демо совместной работы</p></li>
+<li><p>[ ] рассказываем про генерацию статического сайта</p></li>
+</ul>
+<p><img alt="" src="../_images/obsidian_git_git_hosting_static_site_generator-20241211-1.png" /></p>
+<p>Вот сравнение трех популярных генераторов статических сайтов из Markdown файлов:</p>
+<ul class="simple">
+<li><p>Hugo</p></li>
+<li><p>Sphinx</p></li>
+<li><p>MkDocs</p></li>
+</ul>
+<hr class="docutils" />
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Характеристика</p></th>
+<th class="head"><p><strong>Hugo</strong></p></th>
+<th class="head"><p><strong>Sphinx</strong></p></th>
+<th class="head"><p><strong>MkDocs</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Сайт пример</strong></p></td>
+<td><p><a class="reference external" href="https://kubernetes.io/community/">сайт пример</a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/">сайт пример</a></p></td>
+<td><p><a class="reference external" href="https://docs.prefect.io/v3/get-started/index">сайт пример</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Язык</strong></p></td>
+<td><p>Go</p></td>
+<td><p>Python</p></td>
+<td><p>Python</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Скорость сборки</strong></p></td>
+<td><p>Очень быстрый</p></td>
+<td><p>Средняя</p></td>
+<td><p>Медленнее по сравнению с Hugo</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Поддержка Markdown</strong></p></td>
+<td><p>Да (с использованием плагинов)</p></td>
+<td><p>Да (через MyST-Parser)</p></td>
+<td><p>Да (нативный синтаксис)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Темы</strong></p></td>
+<td><p>Большой выбор тем <a class="reference external" href="https://themes.gohugo.io/">ссылка</a></p></td>
+<td><p>Большой одинаковых тем <a class="reference external" href="https://sphinx-themes.org/">ссылка</a><br>Read the docs</p></td>
+<td><p>Ограниченный выбор тем <a class="reference external" href="https://www.mkdocs.org/">ссылка</a><br>Material <a class="reference external" href="https://squidfunk.github.io/mkdocs-material/">ссылка</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Расширяемость</strong></p></td>
+<td><p>Высокая (плагины, шаблоны Go)</p></td>
+<td><p>Высокая (плагины, расширения Python)</p></td>
+<td><p>Средняя (плагины Python)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Простота использования</strong></p></td>
+<td><p>Простой для базовых сайтов</p></td>
+<td><p>Сложнее (MyST)</p></td>
+<td><p>Очень простой</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Целевая аудитория</strong></p></td>
+<td><p>Разработчики, блоги, документация</p></td>
+<td><p>Разработчики, документация, научные проекты</p></td>
+<td><p>Документация, простые сайты</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Поддержка LaTeX</strong></p></td>
+<td><p>Нет (нужно использовать внешние инструменты)</p></td>
+<td><p>Да (через LaTeX)</p></td>
+<td><p>Нет (нужно использовать внешние инструменты)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Многоязычность c переключением языка в интерфейсе</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да, <a class="reference external" href="https://docs.python.org/3/">сайт пример</a></p></td>
+<td><p>нет <a class="reference external" href="https://squidfunk.github.io/mkdocs-material/blog/2024/08/19/how-were-transforming-material-for-mkdocs/">ссылка</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Контроль версий</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да (через sphinx-multiversion)</p></td>
+<td><p>Нет</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Интеграция с CI/CD</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да</p></td>
+<td><p>Да</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Поддержка GitHub Pages</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да</p></td>
+<td><p>Да</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Поддержка PDF</strong></p></td>
+<td><p>Нет (нужно использовать внешние инструменты)</p></td>
+<td><p>Да (через LaTeX, можно еще и генерить pdf на разных языках)</p></td>
+<td><p>Да (есть стандартный плагин <a class="reference external" href="https://habr.com/ru/companies/rostelecom/articles/570098/">ссылка</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Поддержка формул LaTeX</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да (через MyST-Parser)</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Поддержка сложных сайтов</strong></p></td>
+<td><p>Да (подходит для блогов, сайтов)</p></td>
+<td><p>Да (подходит для научных проектов)</p></td>
+<td><p>Ограниченная (лучше для документации)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Поддержка тегов и категорий</strong></p></td>
+<td><p>Да</p></td>
+<td><p>Да (через расширения)</p></td>
+<td><p>Ограниченная</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Поддержка автоматической документации</strong></p></td>
+<td><p>Да (через плагины)</p></td>
+<td><p>Да (через autodoc)</p></td>
+<td><p>Ограниченная</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Поддержка интерактивной документации</strong></p></td>
+<td><p>Да (через плагины)</p></td>
+<td><p>Да (через Breathe, Doxygen)</p></td>
+<td><p>Ограниченная</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sphinx">
+<h1>Генерируем статичный сайт на Sphinx<a class="headerlink" href="#sphinx" title="Ссылка на этот заголовок"></a></h1>
+<hr class="docutils" />
+<section id="id2">
+<h2>Установка Sphinx<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic">
+<li><p>Устанавливаем Sphinx:
+Убедитесь, что у вас установлен Python, затем установите Sphinx через pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+</li>
+<li><p>Создаем проект Sphinx:
+Перейдите в корневую папку вашего репозитория и выполните команду:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<p>Следуйте инструкциям, чтобы настроить базовый проект Sphinx.</p>
+</li>
+<li><p>Настройка Sphinx для работы с Markdown</p></li>
+</ol>
+<p>По умолчанию Sphinx использует reStructuredText (reST), но вы можете настроить его для работы с Markdown с помощью расширения <strong>MyST-Parser</strong>.</p>
+<p>Установим MyST-Parser**:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>myst-parser
+</pre></div>
+</div>
+<p>Включаем MyST-Parser в <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>**:</p>
+<p>Откройте файл <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> и добавьте <code class="docutils literal notranslate"><span class="pre">myst_parser</span></code> в список расширений:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;myst_parser&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Настраиваем поддержку Markdown:
+В файле <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> добавьте следующие строки:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">source_suffix</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;.rst&#39;</span><span class="p">:</span> <span class="s1">&#39;restructuredtext&#39;</span><span class="p">,</span>
+<span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Темы</strong>:
+Будем использовать тему для Sphinx, например, <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx_rtd_theme
+</pre></div>
+</div>
+<p>Затем добавьте тему в <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Многоязычность</strong>:
+Если вам нужно поддерживать несколько языков, Sphinx поддерживает многоязычность. Вы можете настроить язык в <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;ru&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="obsidian-sphinx">
+<h2>Перенос файлов из Obsidian в Sphinx<a class="headerlink" href="#obsidian-sphinx" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic">
+<li><p><strong>Создайте папку для документации</strong>:
+Поместите ваши Markdown файлы из Obsidian в папку <code class="docutils literal notranslate"><span class="pre">source</span></code> вашего проекта Sphinx. Например:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>source/
+├── index.md
+├── about.md
+└── subfolder/
+    └── another.md
+</pre></div>
+</div>
+</li>
+<li><p><strong>Создайте индексный файл</strong>:
+В папке <code class="docutils literal notranslate"><span class="pre">source</span></code> создайте файл <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (или <code class="docutils literal notranslate"><span class="pre">index.md</span></code>), который будет служить главной страницей. Например:</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2>Генерация статического сайта<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic">
+<li><p><strong>Сгенерируйте HTML</strong>:
+Выполните команду для генерации статического сайта:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span><span class="nb">source</span><span class="w"> </span>_build/html
+</pre></div>
+</div>
+</li>
+<li><p><strong>Проверьте сайт</strong>:
+Перейдите в папку <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> и откройте файл <code class="docutils literal notranslate"><span class="pre">index.html</span></code> в браузере, чтобы увидеть ваш сайт.</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>Дополнительные настройки<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<section id="latex">
+<h3>Рендеринг формул Latex<a class="headerlink" href="#latex" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myst_enable_extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;dollarmath&quot;</span><span class="p">,</span>  <span class="c1"># Включает поддержку формул в двух долларах</span>
+<span class="p">]</span>
+
+<span class="n">mathjax_path</span> <span class="o">=</span> <span class="s2">&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="mermaid">
+<h3>Рендеринг Mermaid диаграмм<a class="headerlink" href="#mermaid" title="Ссылка на этот заголовок"></a></h3>
+<ol class="arabic">
+<li><p>Устанавливаем расширение через pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinxcontrib-mermaid
+</pre></div>
+</div>
+</li>
+<li><p>Настройка Sphinx</p></li>
+</ol>
+<p>Откройте файл <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> в вашем проекте Sphinx.</p>
+<p>Добавьте <code class="docutils literal notranslate"><span class="pre">sphinxcontrib.mermaid</span></code> в список расширений:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s1">&#39;sphinxcontrib.mermaid&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Настройте параметры Mermaid (опционально):
+Вы можете настроить параметры, такие как URL для загрузки библиотеки Mermaid или другие настройки. Например:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mermaid_params</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s1">&#39;--theme&#39;</span><span class="p">,</span> <span class="s1">&#39;forest&#39;</span><span class="p">,</span>  <span class="c1"># Устанавливает тему для диаграмм</span>
+   <span class="s1">&#39;--width&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span>    <span class="c1"># Устанавливает ширину диаграмм</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h3>Использование Mermaid диаграмм<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Теперь вы можете встраивать диаграммы Mermaid в ваши документы. Для этого используйте директиву <code class="docutils literal notranslate"><span class="pre">mermaid</span></code>.</p>
+<section id="markdown-myst-parser">
+<h4>Пример использования в Markdown (с MyST-Parser):<a class="headerlink" href="#markdown-myst-parser" title="Ссылка на этот заголовок"></a></h4>
+<p>Если вы используете Markdown, включите поддержку MyST-Parser:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;myst_parser&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinxcontrib.mermaid&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Затем используйте синтаксис MyST для встраивания диаграмм:
+<img alt="" src="../_images/obsidian_git_git_hosting_static_site_generator-20241211-2.png" /></p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2024, Anton Shiryaev. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
